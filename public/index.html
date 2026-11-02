@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>NGƯỜI ẤY CÓ THÍCH MÌNH KHÔNG? 💗</title>
+  
+  <!-- Meta SEO & Social Sharing Previews (Facebook, Zalo, Messenger) -->
+  <meta name="description" content="Một bài trắc nghiệm tình cảm ngọt ngào, lãng mạn dành riêng cho cậu. Cậu có thích mình không? 💌">
+  <meta property="og:title" content="NGƯỜI ẤY CÓ THÍCH MÌNH KHÔNG? 💗">
+  <meta property="og:description" content="Mình có vài câu hỏi muốn hỏi cậu... Cậu hãy trả lời thật lòng nhé! 💌">
+  <meta property="og:image" content="/assets/favicon.svg">
+  <meta name="theme-color" content="#ff758c">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Floating romantic canvas (Sakura petals & floating hearts) -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <a href="/" class="brand-badge">
+      <span class="title-heart">💗</span>
+      <span>Crush Quiz</span>
+    </a>
+    <div class="nav-controls">
+      <button id="btn-create-link" class="icon-btn" title="Tạo link gửi người ấy 💌">💌</button>
+      <button id="btn-audio-toggle" class="icon-btn" title="Bật/Tắt nhạc nền lãng mạn">🎵</button>
+      <button id="btn-admin" class="icon-btn" title="Khu vực quản trị riêng tư">🔐</button>
+    </div>
+  </nav>
+
+  <!-- App Main Content Container -->
+  <main class="app-container">
+
+    <!-- 1. Màn hình mở đầu -->
+    <section id="screen-intro" class="card">
+      <div class="header-box">
+        <h1 class="main-title">
+          <span>NGƯỜI ẤY CÓ THÍCH MÌNH KHÔNG?</span>
+          <span class="title-heart">💗</span>
+        </h1>
+        <div id="intro-sender-note" class="sender-tag" style="display: none;"></div>
+      </div>
+
+      <div class="intro-content">
+        <!-- Mascot Slot for Intro -->
+        <div id="mascot-slot-intro">
+          <div id="mascot-container" class="mascot-container"></div>
+        </div>
+
+        <div class="intro-letter">
+          <p id="intro-greeting" style="font-weight: 700; font-size: 1.15rem; color: var(--primary-pink-dark);">
+            Xin chào cậu! 💗
+          </p>
+          <p>
+            Mình có vài câu hỏi muốn hỏi cậu.<br>
+            Cậu hãy trả lời thật lòng nhé!
+          </p>
+          <p>
+            Đừng lo, câu trả lời của cậu sẽ rất quan trọng với mình...
+          </p>
+        </div>
+
+        <button id="btn-start" class="btn-primary">
+          <span>Bắt đầu khám phá</span>
+          <span>💌</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. Màn hình câu hỏi trắc nghiệm (5 câu) -->
+    <section id="screen-quiz" class="card question-card" style="display: none;">
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="question-number-badge">Câu hỏi 1 / 5</span>
+          <span id="progress-text">20%</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Mascot Slot for Quiz -->
+      <div id="mascot-slot-quiz"></div>
+
+      <!-- Question Title -->
+      <h2 id="question-text" class="question-text">
+        Đang tải câu hỏi...
+      </h2>
+
+      <!-- Options List -->
+      <div id="options-container" class="options-list">
+        <!-- Rendered dynamically by JS -->
+      </div>
+
+      <!-- Footer navigation -->
+      <div class="question-footer">
+        <button id="btn-prev" class="btn-secondary" disabled>
+          <span>←</span>
+          <span>Quay lại</span>
+        </button>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">
+          Chọn 1 đáp án để tiếp tục ✨
+        </span>
+      </div>
+    </section>
+
+    <!-- 3. Màn hình kết quả -->
+    <section id="screen-result" class="card result-card" style="display: none;">
+      <!-- Mascot Slot for Result -->
+      <div id="mascot-slot-result"></div>
+
+      <h2 class="result-title">
+        💌 CẢM ƠN CẬU ĐÃ TRẢ LỜI!
+      </h2>
+
+      <div class="result-bubble">
+        <p id="result-quote" class="result-response-quote">
+          “Có vẻ như chúng ta có một bí mật chung rồi! ❤️”
+        </p>
+        <p id="result-desc" class="result-description">
+          Đang tải thông điệp ngọt ngào...
+        </p>
+      </div>
+
+      <!-- Real-time submission status -->
+      <div id="submission-status">
+        <span class="status-badge">
+          ✓ Đã gửi câu trả lời về cho người ấy thành công 💌
+        </span>
+      </div>
+
+      <div class="result-actions">
+        <button id="btn-share" class="btn-primary">
+          <span>Tạo link gửi Crush của bạn 💌</span>
+        </button>
+        <button onclick="window.location.reload();" class="btn-secondary" style="justify-content: center; width: 100%; padding: 14px;">
+          <span>Làm lại từ đầu 🔄</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Bottom Footer -->
+    <footer class="bottom-bar">
+      <span>Được gửi gắm với tất cả sự chân thành 🌸</span>
+      <button onclick="window.location.href='/admin'" class="admin-link-btn">
+        🔐 Dành cho người tạo: Xem các câu trả lời bí mật
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- Modal: Tạo link tùy biến gửi Crush -->
+  <div id="link-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="btn-close-modal" class="modal-close-btn" aria-label="Đóng">&times;</button>
+      <h3 class="modal-title">
+        <span>💌</span>
+        <span>Tạo link gửi Crush</span>
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 20px;">
+        Điền tên người ấy để tạo bức thư trắc nghiệm ngọt ngào mang dấu ấn riêng của hai bạn!
+      </p>
+
+      <div class="form-group">
+        <label for="input-to" class="form-label">Tên người ấy (Crush):</label>
+        <input type="text" id="input-to" class="form-input" placeholder="Ví dụ: Bé Thảo, Lan Anh, Anh Hoàng...">
+      </div>
+
+      <div class="form-group">
+        <label for="input-from" class="form-label">Tên của bạn (Người gửi):</label>
+        <input type="text" id="input-from" class="form-input" placeholder="Ví dụ: Minh, Một người giấu tên...">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Đường link bí mật của bạn:</label>
+        <div id="link-output-box" class="link-output-box"></div>
+      </div>
+
+      <button id="btn-copy-link" class="btn-primary" style="margin-bottom: 10px;">
+        <span>📋 Sao chép đường link</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/audio.js"></script>
+  <script src="/js/canvas-fx.js"></script>
+  <script src="/js/mascot.js"></script>
+  <script src="/js/app.js"></script>
+
+  <!-- Lyrics Banner (fixed bottom) — injected once DOM ready -->
+  <div id="lyrics-banner" role="status" aria-live="polite">
+    <div class="lyric-song-info" id="lyric-song-info"></div>
+    <div class="lyric-line"></div>
+    <div class="lyric-music-dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</body>
+</html>
+

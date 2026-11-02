@@ -1,0 +1,13 @@
+{
+  "name": "crush-quiz",
+  "version": "1.0.0",
+  "description": "Website tương tác tình yêu: Người Ấy Có Thích Mình Không? 💗",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-server.js"
+  },
+  "keywords": ["crush", "quiz", "love", "interactive", "confession"],
+  "author": "Antigravity",
+  "license": "MIT"
+}

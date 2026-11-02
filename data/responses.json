@@ -1,0 +1,194 @@
+[
+  {
+    "id": "res_1793631054494_353b91cc",
+    "crushName": "Người ấy",
+    "senderName": "Người gửi",
+    "answers": [
+      {
+        "questionId": 1,
+        "question": "Cậu có đang thích ai không?",
+        "selected": "Có.",
+        "category": null,
+        "timestamp": "2026-11-02T14:50:29.831Z"
+      },
+      {
+        "questionId": 2,
+        "question": "Nếu có người nói thích cậu, cậu sẽ cảm thấy thế nào?",
+        "selected": "Vui lắm.",
+        "category": null,
+        "timestamp": "2026-11-02T14:50:31.585Z"
+      },
+      {
+        "questionId": 3,
+        "question": "Nói thật cậu có cảm tình với mình không?",
+        "selected": "Có chứ!",
+        "category": null,
+        "timestamp": "2026-11-02T14:50:36.841Z"
+      },
+      {
+        "questionId": 4,
+        "question": "Nhưng mà... tao đell có tiền lắm mày ạ?",
+        "selected": "Không quan trọng :))",
+        "category": null,
+        "timestamp": "2026-11-02T14:50:50.017Z"
+      },
+      {
+        "questionId": 5,
+        "question": "CẬU CÓ THÍCH MÌNH KHÔNG? 🥺💗",
+        "selected": "Có, mình thích cậu! ❤️",
+        "category": "accepted",
+        "timestamp": "2026-11-02T14:50:54.082Z"
+      }
+    ],
+    "resultCategory": {
+      "code": "accepted",
+      "label": "Crush đồng ý thích! ❤️",
+      "badge": "badge-love",
+      "sentiment": "100% Match"
+    },
+    "durationSeconds": 27,
+    "startedAt": "2026-11-02T14:50:27.337Z",
+    "completedAt": "2026-11-02T14:50:54.499Z",
+    "clientIp": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "res_1793629597814_5e72ae8a",
+    "crushName": "Bé Ngọc",
+    "senderName": "Hoàng",
+    "answers": [
+      {
+        "questionId": 1,
+        "question": "Cậu có đang thích ai không?",
+        "selected": "Có lẽ là có..."
+      },
+      {
+        "questionId": 2,
+        "question": "Nếu có người nói thích cậu, cậu sẽ cảm thấy thế nào?",
+        "selected": "Vui lắm."
+      },
+      {
+        "questionId": 3,
+        "question": "Nói thật cậu có cảm tình với mình không?",
+        "selected": "Có chứ!"
+      },
+      {
+        "questionId": 4,
+        "question": "nhưng mà... tao đell có tiền lắm mày ạ?",
+        "selected": "không quan trọng :))."
+      },
+      {
+        "questionId": 5,
+        "question": "CẬU CÓ THÍCH MÌNH KHÔNG? 🥺💗",
+        "selected": "Có, mình thích cậu! ❤️"
+      }
+    ],
+    "resultCategory": {
+      "code": "accepted",
+      "label": "Crush đồng ý thích! ❤️",
+      "badge": "badge-love",
+      "sentiment": "100% Match"
+    },
+    "durationSeconds": 38,
+    "startedAt": "2026-11-02T14:25:59.808Z",
+    "completedAt": "2026-11-02T14:26:37.815Z",
+    "clientIp": "127.0.0.1",
+    "userAgent": "unknown"
+  },
+  {
+    "id": "res_1793627791932_e4b4a1db",
+    "crushName": "Bé Ngọc",
+    "senderName": "Hoàng",
+    "answers": [
+      {
+        "questionId": 1,
+        "question": "Cậu có đang thích ai không?",
+        "selected": "Có lẽ là có..."
+      },
+      {
+        "questionId": 2,
+        "question": "Nếu có người nói thích cậu, cậu sẽ cảm thấy thế nào?",
+        "selected": "Vui lắm."
+      },
+      {
+        "questionId": 3,
+        "question": "Nói thật cậu có cảm tình với mình không?",
+        "selected": "Có chứ!"
+      },
+      {
+        "questionId": 4,
+        "question": "nhưng mà... tao đell có tiền lắm mày ạ?",
+        "selected": "không quan trọng :))."
+      },
+      {
+        "questionId": 5,
+        "question": "CẬU CÓ THÍCH MÌNH KHÔNG? 🥺💗",
+        "selected": "Có, mình thích cậu! ❤️"
+      }
+    ],
+    "resultCategory": {
+      "code": "accepted",
+      "label": "Crush đồng ý thích! ❤️",
+      "badge": "badge-love",
+      "sentiment": "100% Match"
+    },
+    "durationSeconds": 38,
+    "startedAt": "2026-11-02T13:55:53.926Z",
+    "completedAt": "2026-11-02T13:56:31.933Z",
+    "clientIp": "127.0.0.1",
+    "userAgent": "unknown"
+  },
+  {
+    "id": "res_1793627256068_5f37ecca",
+    "crushName": "Người ấy",
+    "senderName": "Người gửi",
+    "answers": [
+      {
+        "questionId": 1,
+        "question": "Cậu có đang thích ai không?",
+        "selected": "Có.",
+        "category": null,
+        "timestamp": "2026-11-02T13:47:19.315Z"
+      },
+      {
+        "questionId": 2,
+        "question": "Nếu có người nói thích cậu, cậu sẽ cảm thấy thế nào?",
+        "selected": "Vui lắm.",
+        "category": null,
+        "timestamp": "2026-11-02T13:47:20.642Z"
+      },
+      {
+        "questionId": 3,
+        "question": "Nói thật cậu có cảm tình với mình không?",
+        "selected": "Có chứ!",
+        "category": null,
+        "timestamp": "2026-11-02T13:47:22.900Z"
+      },
+      {
+        "questionId": 4,
+        "question": "nhưng mà... tao đell có tiền lắm mày ạ?",
+        "selected": "không quan trọng :)).",
+        "category": null,
+        "timestamp": "2026-11-02T13:47:26.333Z"
+      },
+      {
+        "questionId": 5,
+        "question": "CẬU CÓ THÍCH MÌNH KHÔNG? 🥺💗",
+        "selected": "Có, mình thích cậu! ❤️",
+        "category": "accepted",
+        "timestamp": "2026-11-02T13:47:35.675Z"
+      }
+    ],
+    "resultCategory": {
+      "code": "accepted",
+      "label": "Crush đồng ý thích! ❤️",
+      "badge": "badge-love",
+      "sentiment": "100% Match"
+    },
+    "durationSeconds": 20,
+    "startedAt": "2026-11-02T13:47:16.202Z",
+    "completedAt": "2026-11-02T13:47:36.069Z",
+    "clientIp": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0"
+  }
+]

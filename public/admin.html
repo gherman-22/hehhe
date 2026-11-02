@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Khu Vực Quản Trị Bí Mật 🔐 | Người Ấy Có Thích Mình Không?</title>
+  
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Admin specific styling */
+    .admin-container {
+      max-width: 900px;
+      width: 100%;
+      margin: 30px auto;
+      padding: 0 16px 50px;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .admin-title-box h1 {
+      font-family: 'Comfortaa', cursive, sans-serif;
+      font-size: 1.6rem;
+      color: var(--primary-pink-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-fast);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-pink-dark);
+      font-family: 'Comfortaa', cursive, sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    /* Response Cards */
+    .responses-section {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed var(--pastel-rose);
+      padding-bottom: 12px;
+    }
+
+    .response-card {
+      background: #ffffff;
+      border: 1.5px solid #ffe4ea;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(232, 74, 111, 0.05);
+      transition: var(--transition-smooth);
+    }
+
+    .response-card:hover {
+      border-color: var(--primary-pink);
+      box-shadow: 0 8px 24px rgba(232, 74, 111, 0.12);
+    }
+
+    .response-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .crush-meta h3 {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .time-tag {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Badges */
+    .badge-love {
+      background: #ffe3ea;
+      color: #d81b60;
+      border: 1px solid #ff80ab;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .badge-interested {
+      background: #fff3e0;
+      color: #e65100;
+      border: 1px solid #ffcc80;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .badge-curious {
+      background: #f3e5f5;
+      color: #7b1fa2;
+      border: 1px solid #ce93d8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .badge-friendzone {
+      background: #eceff1;
+      color: #455a64;
+      border: 1px solid #b0bec5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    /* Question & Answer Details */
+    .answers-breakdown {
+      background: #fffcfd;
+      border: 1px solid #ffe8ee;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .answer-row {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.92rem;
+      border-bottom: 1px dashed #fff0f3;
+      padding-bottom: 8px;
+    }
+
+    .answer-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .q-text {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 2px;
+    }
+
+    .a-selected {
+      font-weight: 700;
+      color: var(--primary-pink-dark);
+      font-size: 0.95rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px dashed #fce4ec;
+    }
+
+    .btn-action {
+      background: #fff0f3;
+      border: 1px solid #ffd1dc;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-action:hover {
+      background: #ffd6e0;
+      color: var(--primary-pink-dark);
+    }
+
+    .btn-delete:hover {
+      background: #ffebee;
+      color: #c62828;
+      border-color: #ffcdd2;
+    }
+
+    /* PIN Lock Screen */
+    .pin-card {
+      max-width: 420px;
+      margin: 80px auto;
+      text-align: center;
+    }
+
+    .pin-input-group {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .pin-field {
+      width: 100%;
+      text-align: center;
+      font-size: 1.5rem;
+      letter-spacing: 6px;
+      padding: 12px;
+      border: 2px solid #ffccd5;
+      border-radius: var(--radius-md);
+      color: var(--primary-pink-dark);
+      font-weight: 700;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Particle Canvas -->
+  <canvas id="fx-canvas"></canvas>
+
+  <div class="admin-container">
+
+    <!-- 1. PIN Lock Screen (Shown when not authenticated) -->
+    <div id="auth-screen" class="card pin-card">
+      <div style="font-size: 3rem; margin-bottom: 12px;">🔐</div>
+      <h2 style="font-family: 'Comfortaa', cursive; color: var(--primary-pink-dark); margin-bottom: 8px;">
+        Khu Vực Bí Mật
+      </h2>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 20px;">
+        Chỉ dành riêng cho người tạo bài trắc nghiệm. Vui lòng nhập mã PIN bảo mật để xem các câu trả lời!
+      </p>
+
+      <form id="pin-form" onsubmit="return false;">
+        <div class="pin-input-group">
+          <input type="password" id="admin-pin-input" class="pin-field" maxlength="8" placeholder="••••" autocomplete="off" autofocus>
+        </div>
+        <p id="pin-error" style="color: #d32f2f; font-size: 0.88rem; min-height: 20px; margin-bottom: 16px;"></p>
+        <button id="btn-unlock" class="btn-primary" style="margin-bottom: 12px;">
+          <span>Mở khóa xem câu trả lời 💖</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- 2. Main Dashboard (Shown after unlocking) -->
+    <div id="dashboard-screen" style="display: none;">
+      
+      <!-- Admin Header -->
+      <div class="admin-header">
+        <div class="admin-title-box">
+          <h1>
+            <span>Hộp Thư Phản Hồi Bí Mật</span>
+            <span>💌</span>
+          </h1>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px;">
+            Chỉ bạn mới có thể xem được những câu trả lời này!
+          </p>
+        </div>
+
+        <div class="admin-actions">
+          <a href="/" class="btn-secondary">
+            <span>← Quay lại Website</span>
+          </a>
+          <button id="btn-refresh" class="btn-secondary" title="Làm mới danh sách">
+            <span>🔄 Làm mới</span>
+          </button>
+          <button id="btn-export-csv" class="btn-secondary" title="Tải file CSV">
+            <span>📥 Xuất file</span>
+          </button>
+          <button id="btn-change-pin" class="btn-secondary" title="Đổi mã PIN">
+            <span>🔑 Đổi PIN</span>
+          </button>
+          <button id="btn-logout" class="btn-secondary" title="Khóa bảng quản trị">
+            <span>🚪 Đăng xuất</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div id="stat-total" class="stat-number">0</div>
+          <div class="stat-label">Tổng lượt trả lời 💌</div>
+        </div>
+        <div class="stat-card">
+          <div id="stat-accepted" class="stat-number" style="color: #e91e63;">0</div>
+          <div class="stat-label">Đồng ý thích! ❤️</div>
+        </div>
+        <div class="stat-card">
+          <div id="stat-interested" class="stat-number" style="color: #f57c00;">0</div>
+          <div class="stat-label">Có chút cảm tình 💗</div>
+        </div>
+        <div class="stat-card">
+          <div id="stat-curious" class="stat-number" style="color: #7b1fa2;">0</div>
+          <div class="stat-label">Muốn tìm hiểu ✨</div>
+        </div>
+        <div class="stat-card">
+          <div id="stat-friendzone" class="stat-number" style="color: #546e7a;">0</div>
+          <div class="stat-label">Xem là bạn 🤝</div>
+        </div>
+      </div>
+
+      <!-- Responses Section -->
+      <div class="responses-section">
+        <div class="section-header">
+          <h2 style="font-size: 1.25rem; font-family: 'Comfortaa', cursive; color: var(--primary-pink-dark);">
+            Danh Sách Người Ấy Trả Lời (<span id="response-count-badge">0</span>)
+          </h2>
+          <button id="btn-clear-all" class="btn-action btn-delete" style="padding: 6px 14px;">
+            <span>🗑️ Xóa tất cả</span>
+          </button>
+        </div>
+
+        <div id="responses-list">
+          <!-- Rendered dynamically via admin.js -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Modal: Đổi mã PIN -->
+  <div id="change-pin-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="btn-close-pin-modal" class="modal-close-btn">&times;</button>
+      <h3 class="modal-title">
+        <span>🔑</span>
+        <span>Đổi Mã PIN Quản Trị</span>
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
+        Đặt mã PIN mới để bảo vệ kết quả bài trắc nghiệm của bạn.
+      </p>
+
+      <div class="form-group">
+        <label class="form-label">Mã PIN mới (tối thiểu 4 ký tự):</label>
+        <input type="password" id="input-new-pin" class="form-input" placeholder="Nhập PIN mới...">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nhập lại mã PIN mới:</label>
+        <input type="password" id="input-confirm-pin" class="form-input" placeholder="Xác nhận lại PIN mới...">
+      </div>
+
+      <p id="change-pin-msg" style="font-size: 0.88rem; min-height: 20px; margin-bottom: 12px;"></p>
+
+      <button id="btn-save-new-pin" class="btn-primary">
+        <span>Lưu mã PIN mới</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/audio.js"></script>
+  <script src="/js/canvas-fx.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
+
